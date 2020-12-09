@@ -1,47 +1,19 @@
 package com.example.demo.entity;
 
-import java.io.Serializable;
 
-import lombok.AllArgsConstructor;
+import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
 
-/**
- * <p>
- * 
- * </p>
- *
- * @author mine
- * @since 2020-10-28
- */
 @Data
-@EqualsAndHashCode(callSuper = false)
-@NoArgsConstructor
-@AllArgsConstructor
-public class PostageTable implements Serializable {
+public class PostageTable {
 
-    private static final long serialVersionUID = 1L;
-
-    /**
-     * 资费名称
-     */
+    @TableId("postage_name")
     private String postageName;
 
-    /**
-     * 月租费用
-     */
     private String monthlyRent;
 
-    /**
-     * 每小时费用
-     */
     private String hourlyRent;
 
-    /**
-     * 资费描述
-     */
     private String postageDescription;
-
 
 }

@@ -1,16 +1,14 @@
 package com.example.demo.service;
 
-import com.example.demo.entity.PostageTable;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.example.demo.entity.PostageTable;
 
-/**
- * <p>
- *  服务类
- * </p>
- *
- * @author mine
- * @since 2020-10-28
- */
+import java.util.List;
+
 public interface PostageTableService extends IService<PostageTable> {
+    public int addPostage(PostageTable postageTable);
 
+    public List<PostageTable> findAllPostage();
+
+    public int deleteAllPostage();
 }
