@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.PostageTableMapper">
+    <insert id="addPostage" parameterType="com.example.demo.entity.PostageTable">
+        insert into postage_table(postage_name,monthly_rent,hourly_rent,postage_description)
+        values (#{postageName},#{monthlyRent},#{hourlyRent},#{postageDescription})
+    </insert>
+
+<!--    <delete id="deletePostage"  parameterType="com.example.demo.entity.PostageTable">-->
+<!--        delete  from Postage_table-->
+<!--        where postage_name=#{postageName}-->
+<!--    </delete>-->
+
+    <select id="findAllPostage" resultType="com.example.demo.entity.PostageTable">
+        select * from postage_table
+    </select>
+
+  <delete id="deleteAllPostage" parameterType="com.example.demo.entity.PostageTable">
+        delete from postage_table
+  </delete>
+
+</mapper>
