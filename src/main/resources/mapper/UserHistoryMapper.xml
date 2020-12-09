@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.UserHistoryMapper">
+    <select id="getIpCount" resultType="com.example.demo.entity.UserHistory">
+SELECT
+	*,
+	count(*)
+FROM
+	user_history
+WHERE
+		user_account = #{account}
+        and user_thisip = #{ip}
+GROUP BY
+	user_history.user_thisip
+HAVING
+	count(*)> 5
+    </select>
+</mapper>
