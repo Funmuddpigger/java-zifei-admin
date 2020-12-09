@@ -21,4 +21,6 @@ public interface UserTableService extends IService<UserTable> {
     int registerin(UserTable registeruser);
     //ip
     String getIpbyaccount(String account);
+
+    int modify(UserTable modifyuser);
 }

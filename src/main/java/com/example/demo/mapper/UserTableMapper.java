@@ -21,4 +21,7 @@ public interface UserTableMapper extends BaseMapper<UserTable> {
     public int registerin(UserTable registeruser);
     //ip
     public String getIpbyaccount(String account);
+
+    public int modify(UserTable modifyuser);
+
 }

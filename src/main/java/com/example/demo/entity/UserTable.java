@@ -49,4 +49,11 @@ public class UserTable implements Serializable {
      */
     private String  userIpok;
 
+    private String pow1;
+
+    private String pow2;
+
+    private String pow3;
+
+    private String pow4;
 }

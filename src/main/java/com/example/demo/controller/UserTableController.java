@@ -49,8 +49,7 @@ public class UserTableController {
         Result getuserOne = Result.success( userTableService.getOne(userwapper));
         return getuserOne;
     }
-    //登录
-    @Async
+    //login
     @RequestMapping(value = "/getuser/loginin",method = {RequestMethod.GET,RequestMethod.POST})
     public Result loginin(@RequestBody JSONObject jsonparam,HttpServletRequest request){
         GetMacAddress remoterequest = new GetMacAddress();
@@ -98,7 +97,33 @@ public class UserTableController {
         } else {
             return Result.certificationfail("注册失败");
         }
+    }
 
+    //修改个人信息
+    @RequestMapping(value = "/modifyuser", method = {RequestMethod.GET,RequestMethod.POST})
+    public Result modifyuser(@RequestBody JSONObject jsonparam) {
+        String json = jsonparam.toJSONString();
+
+        JSONObject jsonObject = JSONObject.parseObject(json);
+        String account = jsonObject.getString("account");
+        String password = jsonObject.getString("password");
+        String realname = jsonObject.getString("realname");
+        String phone = jsonObject.getString("phone");
+        String email = jsonObject.getString("email");
+        String pay = jsonObject.getString("pay");
+        UserTable modifyuser = new UserTable();
+        modifyuser.setUserAccount(account);
+        modifyuser.setUserPassword(password);
+        modifyuser.setUserRealname(realname);
+        modifyuser.setUserPhone(phone);
+        modifyuser.setUserEmail(email);
+        modifyuser.setUserPay(pay);
+        //System.out.println(account + "==========" + password + "===========" + email);
+        if (userTableService.modify(modifyuser) >= 1) {
+            return Result.success("success", null);
+        } else {
+            return Result.certificationfail("修改失败");
+        }
     }
 
 }

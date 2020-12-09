@@ -85,5 +85,8 @@ public class UserTableServiceImpl extends ServiceImpl<UserTableMapper, UserTable
         return userTableMapper.getIpbyaccount(account);
     }
 
+    @Override
+    public int modify(UserTable modifyuser) { return userTableMapper.modify(modifyuser); }
+
 
 }
