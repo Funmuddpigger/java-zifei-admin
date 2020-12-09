@@ -17,7 +17,9 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * <p>
@@ -27,7 +29,7 @@ import java.util.List;
  * @author mine
  * @since 2020-10-09
  */
-//@Controller
+
 @RestController
 @RequestMapping(value = "/user",produces = "application/json;utf-8")
 public class UserTableController {
@@ -45,8 +47,12 @@ public class UserTableController {
         String account = jsonObject.getString("account");
         QueryWrapper<UserTable> userwapper = new QueryWrapper<>();
         userwapper.eq("user_account",account);
-
-        Result getuserOne = Result.success( userTableService.getOne(userwapper));
+        UserTable one = userTableService.getOne(userwapper);
+        Map<String,Object> maps = new HashMap<>();
+        String[] arr = { one.getPow1(),one.getPow2(),one.getPow3(),one.getPow4(),one.getPow5()};
+        maps.put("pow",arr);
+        maps.put("user",one);
+        Result getuserOne = Result.success(maps);
         return getuserOne;
     }
     //login

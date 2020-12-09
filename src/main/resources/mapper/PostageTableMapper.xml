@@ -6,11 +6,6 @@
         values (#{postageName},#{monthlyRent},#{hourlyRent},#{postageDescription})
     </insert>
 
-<!--    <delete id="deletePostage"  parameterType="com.example.demo.entity.PostageTable">-->
-<!--        delete  from Postage_table-->
-<!--        where postage_name=#{postageName}-->
-<!--    </delete>-->
-
     <select id="findAllPostage" resultType="com.example.demo.entity.PostageTable">
         select * from postage_table
     </select>

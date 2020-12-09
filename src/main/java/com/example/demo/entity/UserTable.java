@@ -56,4 +56,6 @@ public class UserTable implements Serializable {
     private String pow3;
 
     private String pow4;
+
+    private String pow5;
 }
